@@ -218,7 +218,7 @@ from customers c
 join orders o
 on c.customer_id=o.customer_id
 join products p
-on o.customer_id=p.product_id
+on o.product_id=p.product_id
 group by c.loyalty_member;
 
 
@@ -231,7 +231,7 @@ from customers c
 join orders o
 on c.customer_id=o.customer_id
 join products p
-on o.customer_id=p.product_id
+on o.product_id=p.product_id
 group by c.loyalty_member,c. customer_id )as customer_totals
 group by loyalty_member;
 
@@ -263,7 +263,7 @@ limit 1;
 select c.city,sum(p.price*o.quantity) as revenue
 from customers c
 join orders o
-on c.customer_id=o.product_id
+on c.customer_id=o.customer_id
 join products p
 on o.product_id=p.product_id
 group by c.city
